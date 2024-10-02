@@ -56,7 +56,7 @@ class _SignUpState extends State<SignUp> {
                 child: Text("Sign up",
                     style: Theme.of(context)
                         .textTheme
-                        .headline4!
+                        .headlineLarge!
                         .copyWith(fontSize: 30)),
               ),
               AspectRatio(
@@ -76,7 +76,7 @@ class _SignUpState extends State<SignUp> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     _image != null
-                        ? 
+                        ?
                         // displaying uploaded image
                         ClipRRect(
                             borderRadius: BorderRadius.circular(10),
@@ -86,7 +86,7 @@ class _SignUpState extends State<SignUp> {
                               child: Image.memory(_image!),
                             ),
                           )
-                        : 
+                        :
                         // displaying default image
                         SizedBox(
                             width: 70,
@@ -109,7 +109,6 @@ class _SignUpState extends State<SignUp> {
                   ],
                 ),
               ),
-
               CommonTextField(
                 titleText: "Name",
                 hintText: "John Doe",
@@ -201,8 +200,7 @@ class _SignUpState extends State<SignUp> {
                         msg: "Please fill all fields",
                         type: 'danger');
                   }
-                  showProgress(context,
-                      text: "Creation progress");
+                  showProgress(context, text: "Creation progress");
                   if (formKey.currentState!.validate()) {
                     var user = Landlord(
                         name: nameController.text,
@@ -212,7 +210,7 @@ class _SignUpState extends State<SignUp> {
                         password: passwordController.text,
                         profile: base64.encode(_image!));
 
-                        //creation of the landlord
+                    //creation of the landlord
                     Auth.createLandlord(user, context).then((value) {
                       Routes.pop(context);
                       // on success validate the email
@@ -227,10 +225,16 @@ class _SignUpState extends State<SignUp> {
                 child: Row(
                   children: [
                     Text("Already have an account  |",
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.black)),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyLarge!
+                            .copyWith(color: Colors.black)),
                     TextButton(
                       onPressed: () => Routes.routeUntil(context, Routes.login),
-                      child: const Text("login",style: TextStyle(color: Colors.blue),),
+                      child: const Text(
+                        "login",
+                        style: TextStyle(color: Colors.blue),
+                      ),
                     )
                   ],
                 ),

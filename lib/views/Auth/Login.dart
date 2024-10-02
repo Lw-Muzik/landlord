@@ -31,14 +31,14 @@ class _LoginState extends State<Login> {
                 child: Text("Login",
                     style: Theme.of(context)
                         .textTheme
-                        .headline4!
+                        .headlineMedium!
                         .copyWith(fontSize: 30)),
               ),
               AspectRatio(
                 aspectRatio: 1.6,
-                child: Image.asset("assets/6184498.png"),// SvgPicture.asset('assets/')
+                child: Image.asset(
+                    "assets/6184498.png"), // SvgPicture.asset('assets/')
               ),
-
               CommonTextField(
                 titleText: "Email",
                 hintText: "example@gmail.com",
@@ -48,7 +48,6 @@ class _LoginState extends State<Login> {
                 enableBorder: true,
                 controller: emailController,
               ),
-              
               CommonTextField(
                 titleText: "Password",
                 padding: padding,
@@ -72,7 +71,7 @@ class _LoginState extends State<Login> {
                 space: 0.03,
               ),
               CommonButton(
-                backgroundColor:Colors.blue,
+                backgroundColor: Colors.blue,
                 padding: padding,
                 height: 50,
                 buttonText: "Login",
@@ -124,7 +123,10 @@ class _LoginState extends State<Login> {
                 child: Row(
                   children: [
                     Text("Don't have account",
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.black)),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyLarge!
+                            .copyWith(color: Colors.black)),
                     TextButton(
                       onPressed: () {
                         Routes.routeUntil(context, Routes.signup);
